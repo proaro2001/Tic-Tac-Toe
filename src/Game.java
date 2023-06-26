@@ -111,9 +111,4 @@ public class Game {
         grid[rnc[0]][rnc[1]] = player;
     }
 
-    p
-
-    }}
-
-    
-
+}
