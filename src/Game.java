@@ -8,11 +8,7 @@ public class Game {
     // global variables
     private int[][] grid = new int[3][3];
 
-    // constructor
-    public Game() {
-    }
-
-    // function to check if the game is over
+    // function to
     public int isEnd() {
         /*
          * this function will return -1 if the game is not over
@@ -115,8 +111,9 @@ public class Game {
         grid[rnc[0]][rnc[1]] = player;
     }
 
-    public static void main(String[] args) {
-        Game game = new Game();
-        game.drawGrid();
-    }
-}
+    p
+
+    }}
+
+    
+
