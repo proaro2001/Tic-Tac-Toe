@@ -8,6 +8,12 @@ public class Game {
     // global variables
     private int[][] grid = new int[3][3];
 
+    // constructor
+    public Game() {
+        GameFrame gf = new GameFrame(this);
+        gf.displayWindow();
+    }
+
     // function to
     public int isEnd() {
         /*

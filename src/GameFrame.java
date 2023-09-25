@@ -1,7 +1,6 @@
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-
 import javax.swing.*;
 
 public class GameFrame extends JFrame {
@@ -9,6 +8,15 @@ public class GameFrame extends JFrame {
      * This class creates the frame for the game.
      * Using 2D graphics, it will display the game.
      */
+
+    // private variable
+    private Game game;
+
+    // constructor
+    public GameFrame(Game g) {
+        this.game = g;
+        this.displayWindow();
+    }
 
     public void displayWindow() {
         /*
@@ -44,9 +52,56 @@ public class GameFrame extends JFrame {
             public void mousePressed(MouseEvent e) {
                 int x = e.getX();
                 int y = e.getY();
-                System.out.println("X: " + x + " Y: " + y);
+                System.out.println("X: " + x + " Y: " + y); // debug message
+
+                int clicks[] = getUserClicks(x, y);
+                System.out.println(clicks[0]); // debug message
+                System.out.println(clicks[1]); // debug message
+
+                // try to draw a circle
+                drawCircle(getGraphics(), x, y);
             }
         });
+
+    }
+
+    // function that determines which grid the user clicks on
+    public int[] getUserClicks(int x, int y) {
+        /*
+         * Notice here that x and y are reversely stored in the grid array.
+         * grid[y][x] is the correct way to access the grid.
+         * 
+         * return [x, y]
+         */
+
+        if (x < 100 || x > 400 || y < 100 || y > 400) {
+            return null;
+        }
+
+        int[] clicks = new int[2];
+
+        // determine x
+        if (x < 200) {
+            clicks[0] = 0;
+        } else if (x < 300) {
+            clicks[0] = 1;
+        } else {
+            clicks[0] = 2;
+        }
+
+        // determine y
+        if (y < 200) {
+            clicks[1] = 0;
+        } else if (y < 300) {
+            clicks[1] = 1;
+        } else {
+            clicks[1] = 2;
+        }
+        return clicks;
+    }
+
+    // function to determine what to do when player clicks on each grid
+    public void userInput(int x, int y) {
 
     }
 
